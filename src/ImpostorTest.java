@@ -29,7 +29,7 @@ class ImpostorTest {
     public CrewMate e7 = new CrewMate(game1, player9, room1);
 
     void kill() {
-        i3.kill(e7);
+        i3.kill(i3);
         assert(true);
     }
 

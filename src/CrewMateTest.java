@@ -42,6 +42,6 @@ class CrewMateTest {
 
     void goToRoom() throws NoDoorException {
         e1.goToRoom(room2);
-        assert(true);
+        assert(false);
     }
 }

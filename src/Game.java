@@ -5,20 +5,23 @@ import java.util.Collections;
 public class Game {
     private GameMap gameMap;
     private WaitingRoom waitingRoom;
-    private ArrayList<Impostor> impostors;
-    private ArrayList<CrewMate> crewMates;
-    private ArrayList<Impostor> ghostImpostors;
-    private ArrayList<CrewMate> ghostCrewMates;
+    //private ArrayList<Impostor> impostors;
+    //private ArrayList<CrewMate> crewMates;
+    //private ArrayList<Impostor> ghostImpostors;
+    //private ArrayList<CrewMate> ghostCrewMates;
+    //make everything just for this one
     private ArrayList<Role> allroles;
+    private Role crewmate;
+    private Role impostor;
     private HashMap<Role,Role> votes;
     private ArrayList<Room> rooms;
 
     public Game(GameMap gameMap, WaitingRoom waitingRoom, ArrayList<Player> players) {
         this.waitingRoom = waitingRoom;
-
         this.gameMap = gameMap;
         this.rooms = new ArrayList<>();
-        Room startRoom=null;
+        Room startRoom = null;
+
         for ( RoomTemplate template : gameMap.getRooms() ) {
             Room room = new Room(template);
             this.rooms.add(room);
@@ -27,8 +30,8 @@ public class Game {
             }
         }
 
-        this.impostors = new ArrayList<>();
-        this.crewMates = new ArrayList<>();
+        //this.impostors = new ArrayList<>();
+        //this.crewMates = new ArrayList<>();
 
         int impostorCount;
         if (players.size() < 5) {
@@ -42,12 +45,12 @@ public class Game {
         for (Player player : players) {
             if (impostorCount > 0) {
                 Impostor impostor = new Impostor(this, player, startRoom);
-                impostors.add(impostor);
+                //impostors.add(impostor);
                 allroles.add(impostor);
                 impostorCount--;
             } else {
                 CrewMate crewmate = new CrewMate(this, player, startRoom);
-                crewMates.add(crewmate);
+                //crewMates.add(crewmate);
                 allroles.add(crewmate);
             }
         }
@@ -61,38 +64,38 @@ public class Game {
         return waitingRoom;
     }
 
-    public ArrayList<Impostor> getImpostors() {
+    /*public ArrayList<Impostor> getImpostors() {
         return impostors;
     }
 
     public ArrayList<CrewMate> getCrewmates() {
         return crewMates;
-    }
+    }*/
 
-    /**
+    /*
      * save a player who is an impostor to the correct list
      * @param impostor is the specific player
-     */
+
     public void addImpostor(Impostor impostor) {
         impostors.add(impostor);
     }
 
-    /**
      * save a player who is a crewmate to the correct list
      * @param crewmate is the specific player
-     */
-    public void addCrewmate(CrewMate crewmate) {
+
+    /*public void addCrewmate(CrewMate crewmate) {
         crewMates.add(crewmate);
-    }
+    }*/
 
     /**
-     * save a player who recently died
+     * remove a player who recently died from the alive roles
      * @param impostor is the specific player
      */
     public void addGhostImpostor(Impostor impostor) {
         if (impostor.isGhost()) {
-            impostors.remove(impostor);
-            ghostImpostors.add(impostor);
+            //impostors.remove(impostor);
+            //ghostImpostors.add(impostor);
+            allroles.remove(impostor);
         }
     }
 
@@ -102,8 +105,9 @@ public class Game {
      */
     public void addGhostCrewmate(CrewMate crewmate) {
         if (crewmate.isGhost()) {
-            crewMates.remove(crewmate);
-            ghostCrewMates.add(crewmate);
+            //crewMates.remove(crewmate);
+            //ghostCrewMates.add(crewmate);
+            allroles.remove(crewmate);
         }
     }
 
@@ -113,7 +117,15 @@ public class Game {
      */
     public boolean impostorsWon() {
         boolean impostorsWon = false;
-        if (crewMates.size() <= impostors.size()) {
+        int count = 0;
+        for(int i = 0; i < allroles.size(); i++){
+            for(Role impostor1 : allroles){
+                if(impostor1.equals(impostor)){
+                    count++;
+                }
+            }
+        }
+        if (allroles.size() <= count) {
             System.out.println("Impostors won!");
             impostorsWon = true;
         }
@@ -189,10 +201,12 @@ public class Game {
             }
             sacrifice.dies();
             if(sacrifice instanceof Impostor){
-                ghostImpostors.add((Impostor) sacrifice);
+                //ghostImpostors.add((Impostor) sacrifice);
+                allroles.remove((Impostor) sacrifice);
             }
             else{
-                ghostCrewMates.add((CrewMate) sacrifice);
+                //ghostCrewMates.add((CrewMate) sacrifice);
+                allroles.remove((CrewMate) sacrifice);
             }
             return true;
         }

@@ -26,7 +26,7 @@ class GameTest {
     public CrewMate e6 = new CrewMate(game1, player8, room1);
     public CrewMate e7 = new CrewMate(game1, player9, room1);
 
-    void addImpostor() {
+    /*void addImpostor() {
         game1.addImpostor(i1);
         game1.addImpostor(i2);
         game1.addImpostor(i3);
@@ -42,7 +42,7 @@ class GameTest {
         game1.addCrewmate(e6);
         game1.addCrewmate(e7);
         assert(true);
-    }
+    }*/
 
     void addGhostImpostor() {
         game1.addGhostImpostor(i1);
