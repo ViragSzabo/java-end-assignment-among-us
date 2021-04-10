@@ -1,13 +1,14 @@
 public class CrewMate extends Role
 {
     private RegularTask regularTask;
-    private UrgentTask urgentTask;
     public CrewMate(Game game, Player player, Room room)
     {
         super(game, player, room);
     }
 
-    public RegularTask doTask(RegularTask regularTask){ return regularTask; }
+    public void doTask(RegularTask regularTask){
+        regularTask.setIsDone();
+    }
 
     /**
      * able to fix a room
@@ -18,7 +19,6 @@ public class CrewMate extends Role
         if(roomToFix.isSabotaged() && this.getBodyRoom() == roomToFix)
         {
             roomToFix.setSabotaged(false);
-            urgentTask.setIsDone();
         }
     }
 
@@ -31,12 +31,19 @@ public class CrewMate extends Role
     {
         try{
             if ( !this.isGhost() && !this.getBodyRoom().hasDoorTo(room) ) {
-                this.getBodyRoom().hasDoorTo(room);
+                System.out.println("Cannot go there. ("+
+                        this.getPlayer().getPlayerName()+": "+
+                        this.getBodyRoom().getTemplate().getRoomName()+" > "+
+                        room.getTemplate().getRoomName()+
+                ")");
                 throw new NoDoorException(this, room);
             }
-        }
-        catch(Exception NoDoorException){
-            System.out.println("Cannot go there.");
+            if ( !this.isGhost() ) {
+                this.setBodyRoom(room);
+            }
+            this.setSoulRoom(room);
+        } catch(Exception NoDoorException) {
+
         }
     }
 

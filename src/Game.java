@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Collections;
@@ -10,10 +11,8 @@ public class Game {
     //private ArrayList<Impostor> ghostImpostors;
     //private ArrayList<CrewMate> ghostCrewMates;
     //make everything just for this one
-    private ArrayList<Role> allroles;
-    private Role crewmate;
-    private Role impostor;
-    private HashMap<Role,Role> votes;
+    private ArrayList<Role> aliveRoles;
+    private HashMap<Role,Role> votes = new HashMap<>();
     private ArrayList<Room> rooms;
 
     public Game(GameMap gameMap, WaitingRoom waitingRoom, ArrayList<Player> players) {
@@ -30,9 +29,9 @@ public class Game {
             }
         }
 
-        //this.impostors = new ArrayList<>();
-        //this.crewMates = new ArrayList<>();
+        this.aliveRoles = new ArrayList<>();
 
+        // Creating Roles on their own
         int impostorCount;
         if (players.size() < 5) {
             impostorCount = 1;
@@ -46,14 +45,15 @@ public class Game {
             if (impostorCount > 0) {
                 Impostor impostor = new Impostor(this, player, startRoom);
                 //impostors.add(impostor);
-                allroles.add(impostor);
+                aliveRoles.add(impostor);
                 impostorCount--;
             } else {
                 CrewMate crewmate = new CrewMate(this, player, startRoom);
                 //crewMates.add(crewmate);
-                allroles.add(crewmate);
+                aliveRoles.add(crewmate);
             }
         }
+
     }
 
     public GameMap getGameMap() {
@@ -62,6 +62,14 @@ public class Game {
 
     public WaitingRoom getWaitingRoom() {
         return waitingRoom;
+    }
+
+    public ArrayList<Role> getAliveRoles() {
+        return aliveRoles;
+    }
+
+    public ArrayList<Room> getRooms() {
+        return rooms;
     }
 
     /*public ArrayList<Impostor> getImpostors() {
@@ -87,45 +95,21 @@ public class Game {
         crewMates.add(crewmate);
     }*/
 
-    /**
-     * remove a player who recently died from the alive roles
-     * @param impostor is the specific player
-     */
-    public void addGhostImpostor(Impostor impostor) {
-        if (impostor.isGhost()) {
-            //impostors.remove(impostor);
-            //ghostImpostors.add(impostor);
-            allroles.remove(impostor);
-        }
-    }
-
-    /**
-     * save a player who recently died
-     * @param crewmate is the specific player
-     */
-    public void addGhostCrewmate(CrewMate crewmate) {
-        if (crewmate.isGhost()) {
-            //crewMates.remove(crewmate);
-            //ghostCrewMates.add(crewmate);
-            allroles.remove(crewmate);
-        }
-    }
 
     /**
      * The impostors win
      * when there is more impostor OR the same amount of crewmates and impostors are in the game
      */
-    public boolean impostorsWon() {
+    public boolean DoImpostorsWon() {
         boolean impostorsWon = false;
-        int count = 0;
-        for(int i = 0; i < allroles.size(); i++){
-            for(Role impostor1 : allroles){
-                if(impostor1.equals(impostor)){
-                    count++;
-                }
+        int impostorCount = 0;
+        for(Role role : aliveRoles){
+            if(role instanceof Impostor){
+                impostorCount++;
             }
         }
-        if (allroles.size() <= count) {
+        int crewmateCount = aliveRoles.size() - impostorCount;
+        if (crewmateCount <= impostorCount) {
             System.out.println("Impostors won!");
             impostorsWon = true;
         }
@@ -140,17 +124,17 @@ public class Game {
      * when all the tasks are done by the crewmates
      * ghostCrewmates are able to do the tasks too
      */
-    public boolean crewmatesWon() {
-        boolean crewmatesWon = false;
+    public boolean DoCrewmatesWon() {
+        boolean crewmatesWon = true;
         for ( Room room : rooms ) {
-            if(!room.getTasks().isEmpty()){
-                crewmatesWon = true;
-            }
-            else{
+            if ( !room.getTasks().isEmpty() ){
                 crewmatesWon = false;
+                break;
             }
         }
-        System.out.println("Crewmates won!");
+        if ( crewmatesWon ) {
+            System.out.println("Crewmates won!");
+        }
         return crewmatesWon;
     }
 
@@ -159,12 +143,16 @@ public class Game {
      * @param sender is the player who send the message
      * @param message is what the player write
      */
-    public void broadcast(Role sender, String message) {
-        for ( Role role : allroles ) {
+    public boolean broadcast(Role sender, String message) {
+        boolean isSent = true;
+        for ( Role role : aliveRoles) {
             if ( sender != role ) {
                 role.receiveMessage(sender, message);
+            }else{
+                isSent = false;
             }
         }
+        return isSent;
     }
 
     /**
@@ -175,7 +163,7 @@ public class Game {
      */
     public boolean vote(Role voter, Role candidate) {
         votes.put(voter,candidate);
-        if ( votes.size()==allroles.size() ) {
+        if ( votes.size() == aliveRoles.size() ) {
             HashMap<Role, Integer> voteCounts = new HashMap<>();
             for ( Role who : votes.values() ) {
                 if ( voteCounts.containsKey(who) ) {
@@ -200,14 +188,7 @@ public class Game {
                 return false;
             }
             sacrifice.dies();
-            if(sacrifice instanceof Impostor){
-                //ghostImpostors.add((Impostor) sacrifice);
-                allroles.remove((Impostor) sacrifice);
-            }
-            else{
-                //ghostCrewMates.add((CrewMate) sacrifice);
-                allroles.remove((CrewMate) sacrifice);
-            }
+            aliveRoles.remove(sacrifice);
             return true;
         }
         return false;

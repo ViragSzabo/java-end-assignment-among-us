@@ -3,15 +3,20 @@ import java.util.ArrayList;
 public class Room {
     private RoomTemplate template;
     private boolean isSabotaged;
+
+    private UrgentTask urgentTask;
     private ArrayList<RegularTask> regularTasks;
 
     public Room(RoomTemplate template){
         this.template = template;
         this.isSabotaged = false;
+        this.urgentTask = null;
         this.regularTasks = new ArrayList<>();
     }
 
     public RoomTemplate getTemplate() { return template; }
+
+    public UrgentTask getUrgentTask() { return urgentTask; }
 
     public boolean isSabotaged() {
         return isSabotaged;
@@ -32,6 +37,11 @@ public class Room {
     public void setSabotaged(boolean sabotaged)
     {
         isSabotaged = sabotaged;
+        if ( sabotaged ) {
+            urgentTask = new UrgentTask("Leaking", "Gas is leaking!", 0.0);
+        } else {
+            urgentTask = null;
+        }
     }
 
     /**

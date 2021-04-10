@@ -24,8 +24,10 @@ public class RoomTemplate {
      * able to go out of another room and get back on the same door
      */
     public void addDoorTo(RoomTemplate nextRoom) {
-        doors.add(nextRoom);
-        nextRoom.addDoorTo(this);
+        if ( !doors.contains(nextRoom) ) {
+            doors.add(nextRoom);
+            nextRoom.addDoorTo(this);
+        }
     }
 
     /**

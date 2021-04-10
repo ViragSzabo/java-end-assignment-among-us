@@ -1,13 +1,20 @@
-class GameMapTest {
-    public RoomTemplate rt1 = new RoomTemplate("register");
-    public Room room1 = new Room(rt1);
-    public RoomTemplate rt2 = new RoomTemplate("lab");
-    public Room room2 = new Room(rt2);
-    public GameMap map1 = new GameMap("laboratorium");
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+class GameMapTest {
+    GameMap map1 = new GameMap("laboratorium");
+    RoomTemplate rt1 = new RoomTemplate("cafeteria");
+    RoomTemplate rt2 = new RoomTemplate("register");
+    RoomTemplate rt3 = new RoomTemplate("labor");
+
+    @Test
     void addRooms() {
         map1.addRooms(rt1);
+        assertTrue(true);
         map1.addRooms(rt2);
-        assert(true);
+        assertTrue(true);
+        map1.addRooms(rt3);
+        assertTrue(true);
     }
 }

@@ -1,4 +1,4 @@
-public class UrgentTaskTest {
+public class UrgentTaskTest_1 {
     public UrgentTask urgentTask1 = new UrgentTask("repair", "fix the oxygen machine", 1);
     public UrgentTask urgentTask2 = new UrgentTask("fix", "fix the lights", 0);
 

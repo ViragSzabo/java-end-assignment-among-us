@@ -1,17 +1,31 @@
-class PlayerTest {
-    Application app1 = new Application("amongUs");
-    Player player1 = new Player("Flower", "red", "leaf");
-    WaitingRoom wr1 = new WaitingRoom("21rwe21", 10, player1);
-    GameMap map1 = new GameMap("laboratorium");
-    Game game1 = new Game(map1, wr1, app1.getPlayers());
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+class PlayerTest {
+
+    Player player0 = new Player("Boomerang", "grey", "pot");
+
+    @Test
     void createRoom() {
-        player1.createRoom("re32tr54", 10, player1);
-        assert(true);
+        WaitingRoom wr2 = new WaitingRoom("21rwe21", 4, player0);
+        assertTrue(true);
     }
 
+    @Test
     void joinRoom() {
+        Player player1 = new Player("Flower", "red", "leaf");
+        Player player2 = new Player("DrCooper", "black", "train");
+        Player player3 = new Player("DrHofstadter", "yellow", "glasses");
+        Player player4 = new Player("DrKoothrappali", "orange", "sunglasses");
+        WaitingRoom wr1 = new WaitingRoom("21rwe21", 4, player1);
         player1.joinRoom(wr1);
-        assert(true);
+        assertTrue(true);
+        player2.joinRoom(wr1);
+        assertTrue(true);
+        player3.joinRoom(wr1);
+        assertTrue(true);
+        player4.joinRoom(wr1);
+        assertTrue(true);
     }
 }

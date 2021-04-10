@@ -1,4 +1,4 @@
-class RegularTaskTest {
+class RegularTaskTest_1 {
     public RegularTask regularTask1 = new RegularTask("mop", "water is on the floor", 1);
     public RegularTask regularTask2 = new RegularTask("fix", "cannot register in", 1);
 
