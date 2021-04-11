@@ -103,12 +103,17 @@ public class Game {
     public boolean DoImpostorsWon() {
         boolean impostorsWon = false;
         int impostorCount = 0;
+        int crewmateCount = 0;
+
         for(Role role : aliveRoles){
-            if(role instanceof Impostor){
-                impostorCount++;
+            if (!role.isGhost()) {
+                if (role instanceof Impostor) {
+                    impostorCount++;
+                } else {
+                    crewmateCount++;
+                }
             }
         }
-        int crewmateCount = aliveRoles.size() - impostorCount;
         if (crewmateCount <= impostorCount) {
             System.out.println("Impostors won!");
             impostorsWon = true;
@@ -188,7 +193,8 @@ public class Game {
                 return false;
             }
             sacrifice.dies();
-            aliveRoles.remove(sacrifice);
+            sacrifice.isGhost();
+            //aliveRoles.remove(sacrifice);
             return true;
         }
         return false;

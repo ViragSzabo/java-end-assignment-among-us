@@ -14,6 +14,7 @@ public class Impostor extends Role{
     {
         if ( role.getBodyRoom()==this.getBodyRoom() && !role.isGhost() ) {
             role.dies();
+            role.isGhost();
         }
     }
 

@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class RoomTemplate {
-
     private String roomName; // to RoomTemplate
     private ArrayList<RoomTemplate> doors;
 

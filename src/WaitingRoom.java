@@ -2,15 +2,15 @@ import java.util.ArrayList;
 
 public class WaitingRoom {
     private String roomCode;
-    private int maxPlayer;
+    private int maxPlayerCount;
     private boolean isPrivate;
     private ArrayList<Player> groupPlayers;
     private Game game;
     private Player creator;
 
-    public WaitingRoom(String roomCode, int maxPlayer, Player creator) {
+    public WaitingRoom(String roomCode, int maxPlayerCount, Player creator) {
         this.roomCode = roomCode;
-        this.maxPlayer = maxPlayer;
+        this.maxPlayerCount = maxPlayerCount;
         this.isPrivate = true;
         this.groupPlayers = new ArrayList<>();
         this.creator = creator;
@@ -21,8 +21,8 @@ public class WaitingRoom {
         return roomCode;
     }
 
-    public int getMaxPlayer() {
-        return maxPlayer;
+    public int getMaxPlayerCount() {
+        return maxPlayerCount;
     }
 
     public boolean isPrivate() {
@@ -38,7 +38,9 @@ public class WaitingRoom {
     }
 
     public void addGroupPlayers(Player player) {
-        groupPlayers.add(player);
+        if ( !groupPlayers.contains(player) ) {
+            groupPlayers.add(player);
+        }
     }
 
     public Game getGame() {
@@ -51,10 +53,11 @@ public class WaitingRoom {
      * @return a new game
      */
     public Game startGame(GameMap gameMap) {
-        Game newGame = null;
-        if (groupPlayers.size() <= maxPlayer && groupPlayers.size() >= 3) {
-            newGame = new Game(gameMap, this, groupPlayers);
+        if (groupPlayers.size() <= maxPlayerCount && groupPlayers.size() >= 3) {
+            this.game = new Game(gameMap, this, groupPlayers);
+        } else {
+            System.out.println("Cannot start game: groupPlayers.size()="+groupPlayers.size());
         }
-        return newGame;
+        return game;
     }
 }

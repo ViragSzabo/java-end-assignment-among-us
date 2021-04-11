@@ -9,6 +9,7 @@ public class GameMap {
         this.mapName = mapName;
         this.rooms = new ArrayList<>();
         startRoomTemplate = new RoomTemplate("Cafeteria");
+        this.addRoom(startRoomTemplate);
     }
 
     public String getMapName() {
@@ -19,7 +20,7 @@ public class GameMap {
         return rooms;
     }
 
-    public void addRooms(RoomTemplate room) { rooms.add(room); }
+    public void addRoom(RoomTemplate room) { rooms.add(room); }
 
     public RoomTemplate getStartRoom(){
         return startRoomTemplate;

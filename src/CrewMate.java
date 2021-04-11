@@ -29,22 +29,18 @@ public class CrewMate extends Role
      */
     public void goToRoom(Room room) throws NoDoorException
     {
-        try{
-            if ( !this.isGhost() && !this.getBodyRoom().hasDoorTo(room) ) {
-                System.out.println("Cannot go there. ("+
-                        this.getPlayer().getPlayerName()+": "+
-                        this.getBodyRoom().getTemplate().getRoomName()+" > "+
-                        room.getTemplate().getRoomName()+
-                ")");
-                throw new NoDoorException(this, room);
-            }
-            if ( !this.isGhost() ) {
-                this.setBodyRoom(room);
-            }
-            this.setSoulRoom(room);
-        } catch(Exception NoDoorException) {
-
+        if ( !this.isGhost() && !this.getBodyRoom().hasDoorTo(room) ) {
+            System.out.println("Cannot go there. ("+
+                    this.getPlayer().getPlayerName()+": "+
+                    this.getBodyRoom().getTemplate().getRoomName()+" > "+
+                    room.getTemplate().getRoomName()+
+            ")");
+            throw new NoDoorException(this, room);
         }
+        if ( !this.isGhost() ) {
+            this.setBodyRoom(room);
+        }
+        this.setSoulRoom(room);
     }
 
 }
