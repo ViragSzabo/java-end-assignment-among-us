@@ -1,7 +1,9 @@
+package com.viragszabo.amongus.map;
+
 import java.util.ArrayList;
 
 public class RoomTemplate {
-    private String roomName; // to RoomTemplate
+    private String roomName; // to com.viragszabo.amongus.map.RoomTemplate
     private ArrayList<RoomTemplate> doors;
 
     public RoomTemplate(String roomName) {
@@ -11,7 +13,7 @@ public class RoomTemplate {
 
     /**
      * ask for a string
-     * @return the name of the RoomTemplate
+     * @return the name of the com.viragszabo.amongus.map.RoomTemplate
      */
     public String getRoomName() {
         return roomName;

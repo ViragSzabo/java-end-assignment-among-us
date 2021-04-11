@@ -1,3 +1,7 @@
+package com.viragszabo.amongus.game;
+
+import com.viragszabo.amongus.map.GameMap;
+
 import java.util.ArrayList;
 
 public class WaitingRoom {

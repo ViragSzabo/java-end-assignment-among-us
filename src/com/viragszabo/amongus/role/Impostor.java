@@ -1,3 +1,9 @@
+package com.viragszabo.amongus.role;
+
+import com.viragszabo.amongus.game.Game;
+import com.viragszabo.amongus.game.Player;
+import com.viragszabo.amongus.map.Room;
+
 public class Impostor extends Role{
 
     private double killTime;

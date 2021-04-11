@@ -1,3 +1,13 @@
+package com.viragszabo.amongus.role;
+
+import com.viragszabo.amongus.game.Application;
+import com.viragszabo.amongus.game.Game;
+import com.viragszabo.amongus.game.Player;
+import com.viragszabo.amongus.game.WaitingRoom;
+import com.viragszabo.amongus.map.GameMap;
+import com.viragszabo.amongus.map.Room;
+import com.viragszabo.amongus.map.RoomTemplate;
+import com.viragszabo.amongus.task.RegularTask;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

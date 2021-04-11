@@ -1,4 +1,12 @@
-import java.lang.reflect.Array;
+package com.viragszabo.amongus.game;
+
+import com.viragszabo.amongus.map.GameMap;
+import com.viragszabo.amongus.map.Room;
+import com.viragszabo.amongus.map.RoomTemplate;
+import com.viragszabo.amongus.role.CrewMate;
+import com.viragszabo.amongus.role.Impostor;
+import com.viragszabo.amongus.role.Role;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Collections;
@@ -6,10 +14,10 @@ import java.util.Collections;
 public class Game {
     private GameMap gameMap;
     private WaitingRoom waitingRoom;
-    //private ArrayList<Impostor> impostors;
-    //private ArrayList<CrewMate> crewMates;
-    //private ArrayList<Impostor> ghostImpostors;
-    //private ArrayList<CrewMate> ghostCrewMates;
+    //private ArrayList<com.viragszabo.amongus.role.Impostor> impostors;
+    //private ArrayList<com.viragszabo.amongus.role.CrewMate> crewMates;
+    //private ArrayList<com.viragszabo.amongus.role.Impostor> ghostImpostors;
+    //private ArrayList<com.viragszabo.amongus.role.CrewMate> ghostCrewMates;
     //make everything just for this one
     private ArrayList<Role> aliveRoles;
     private HashMap<Role,Role> votes = new HashMap<>();
@@ -72,11 +80,11 @@ public class Game {
         return rooms;
     }
 
-    /*public ArrayList<Impostor> getImpostors() {
+    /*public ArrayList<com.viragszabo.amongus.role.Impostor> getImpostors() {
         return impostors;
     }
 
-    public ArrayList<CrewMate> getCrewmates() {
+    public ArrayList<com.viragszabo.amongus.role.CrewMate> getCrewmates() {
         return crewMates;
     }*/
 
@@ -84,14 +92,14 @@ public class Game {
      * save a player who is an impostor to the correct list
      * @param impostor is the specific player
 
-    public void addImpostor(Impostor impostor) {
+    public void addImpostor(com.viragszabo.amongus.role.Impostor impostor) {
         impostors.add(impostor);
     }
 
      * save a player who is a crewmate to the correct list
      * @param crewmate is the specific player
 
-    /*public void addCrewmate(CrewMate crewmate) {
+    /*public void addCrewmate(com.viragszabo.amongus.role.CrewMate crewmate) {
         crewMates.add(crewmate);
     }*/
 

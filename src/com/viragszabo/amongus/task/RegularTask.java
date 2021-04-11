@@ -1,3 +1,5 @@
+package com.viragszabo.amongus.task;
+
 public class RegularTask implements Task{
     private String taskName;
     private boolean isDone;

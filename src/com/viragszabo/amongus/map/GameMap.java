@@ -1,3 +1,5 @@
+package com.viragszabo.amongus.map;
+
 import java.util.ArrayList;
 
 public class GameMap {

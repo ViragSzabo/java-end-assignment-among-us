@@ -1,3 +1,15 @@
+package com.viragszabo.amongus.game;
+
+import com.viragszabo.amongus.map.GameMap;
+import com.viragszabo.amongus.map.NoDoorException;
+import com.viragszabo.amongus.map.Room;
+import com.viragszabo.amongus.map.RoomTemplate;
+import com.viragszabo.amongus.role.CrewMate;
+import com.viragszabo.amongus.role.Impostor;
+import com.viragszabo.amongus.role.Role;
+import com.viragszabo.amongus.task.RegularTask;
+import com.viragszabo.amongus.task.UrgentTask;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
@@ -99,7 +111,7 @@ class GameTest {
     void doCrewmatesWon() throws NoDoorException {
         GameMap map1 = new GameMap("laboratorium");
 
-//        RoomTemplate rt1 = new RoomTemplate("cafeteria");
+//        com.viragszabo.amongus.map.RoomTemplate rt1 = new com.viragszabo.amongus.map.RoomTemplate("cafeteria");
         RoomTemplate rt1 = map1.getStartRoom();
         RoomTemplate rt2 = new RoomTemplate("register");
         RoomTemplate rt3 = new RoomTemplate("labor");
@@ -155,7 +167,7 @@ class GameTest {
         game1.broadcast(getCrewMate(game1, 3), "Who could die first? There is just one impostor.");
         game1.broadcast(getCrewMate(game1, 4), "No, there are two of them.");
         game1.broadcast(getCrewMate(game1, 3), "For me, Denise is sus.");
-        game1.broadcast(getImpostor(game1, 2), "Why? I just made the urgent Task, before I went out Penny came in and Bernadett.");
+        game1.broadcast(getImpostor(game1, 2), "Why? I just made the urgent com.viragszabo.amongus.task.Task, before I went out Penny came in and Bernadett.");
         game1.broadcast(getCrewMate(game1, 3), "I did not kill her.");
         //voting
         Impostor imp = getImpostor(game1);

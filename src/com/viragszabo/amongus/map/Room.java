@@ -1,3 +1,8 @@
+package com.viragszabo.amongus.map;
+
+import com.viragszabo.amongus.task.RegularTask;
+import com.viragszabo.amongus.task.UrgentTask;
+
 import java.util.ArrayList;
 
 public class Room {

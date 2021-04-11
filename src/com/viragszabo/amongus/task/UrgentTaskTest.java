@@ -1,3 +1,6 @@
+package com.viragszabo.amongus.task;
+
+import com.viragszabo.amongus.map.NoDoorException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

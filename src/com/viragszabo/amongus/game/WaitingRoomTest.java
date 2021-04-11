@@ -1,3 +1,6 @@
+package com.viragszabo.amongus.game;
+
+import com.viragszabo.amongus.map.GameMap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

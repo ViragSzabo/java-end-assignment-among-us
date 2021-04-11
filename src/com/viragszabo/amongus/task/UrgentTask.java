@@ -1,3 +1,5 @@
+package com.viragszabo.amongus.task;
+
 public class UrgentTask implements Task{
         private String taskName;
         private boolean isDone;

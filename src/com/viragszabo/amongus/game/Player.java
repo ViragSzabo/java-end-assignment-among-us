@@ -1,3 +1,5 @@
+package com.viragszabo.amongus.game;
+
 public class Player {
     private String playerName;
     private String bodyColour;
