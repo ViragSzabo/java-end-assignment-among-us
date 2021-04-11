@@ -183,8 +183,7 @@ class GameTest {
         wr1.addGroupPlayers(player6);
         wr1.startGame(map1);
         Game game1 = wr1.getGame();
-        game1.broadcast(getCrewMate(game1), "Any suspicious?");
-        assertTrue(true);
+        game1.broadcast(getCrewMate(game1), "Any suspicious?"); // only system.out
     }
 
     @org.junit.jupiter.api.Test

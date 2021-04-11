@@ -23,6 +23,7 @@ class ImpostorTest {
         Impostor i1 = new Impostor(game1, player3, room1);
         RegularTask task1 = new RegularTask("Wet floor", "Mop the floor.", 0.0);
 
+        assertTrue(!e1.isGhost());
         i1.kill(e1);
         assertTrue(e1.isGhost());
     }
@@ -47,6 +48,7 @@ class ImpostorTest {
         Impostor i1 = new Impostor(game1, player3, room1);
         RegularTask task1 = new RegularTask("Wet floor", "Mop the floor.", 0.0);
 
+        assertTrue(!room1.isSabotaged());
         i1.sabotage(room1);
         assertTrue(room1.isSabotaged());
     }

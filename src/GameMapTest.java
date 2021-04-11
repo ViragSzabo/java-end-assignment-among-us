@@ -12,9 +12,11 @@ class GameMapTest {
         RoomTemplate rt3 = new RoomTemplate("labor");
 
 
-        assertTrue(map1.getRooms().contains(rt1));
+        assertFalse(map1.getRooms().contains(rt2));
         map1.addRoom(rt2);
         assertTrue(map1.getRooms().contains(rt2));
+
+        assertFalse(map1.getRooms().contains(rt3));
         map1.addRoom(rt3);
         assertTrue(map1.getRooms().contains(rt3));
     }

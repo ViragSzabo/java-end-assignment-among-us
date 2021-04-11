@@ -55,8 +55,6 @@ public class WaitingRoom {
     public Game startGame(GameMap gameMap) {
         if (groupPlayers.size() <= maxPlayerCount && groupPlayers.size() >= 3) {
             this.game = new Game(gameMap, this, groupPlayers);
-        } else {
-            System.out.println("Cannot start game: groupPlayers.size()="+groupPlayers.size());
         }
         return game;
     }

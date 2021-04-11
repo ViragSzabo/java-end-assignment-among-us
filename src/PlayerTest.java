@@ -7,8 +7,8 @@ class PlayerTest {
     @Test
     void createRoom() {
         Player player0 = new Player("Boomerang", "grey", "pot");
-        WaitingRoom wr2 = new WaitingRoom("21rwe21", 1, player0);
-        assertTrue(wr2.isPrivate());
+        player0.createRoom("21rwe21", 4, player0);
+        assertTrue(player0.getWaitingRoom().isPrivate());
     }
 
     @Test
@@ -22,12 +22,15 @@ class PlayerTest {
         player1.joinRoom(wr1);
         wr1.addGroupPlayers(player1);
         assertTrue(wr1.getGroupPlayers().contains(player1));
+
         player2.joinRoom(wr1);
         wr1.addGroupPlayers(player2);
         assertTrue(wr1.getGroupPlayers().contains(player2));
+
         player3.joinRoom(wr1);
         wr1.addGroupPlayers(player3);
         assertTrue(wr1.getGroupPlayers().contains(player3));
+
         player4.joinRoom(wr1);
         wr1.addGroupPlayers(player4);
         assertTrue(wr1.getGroupPlayers().contains(player4));
