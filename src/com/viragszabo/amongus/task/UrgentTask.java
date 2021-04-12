@@ -4,12 +4,14 @@ public class UrgentTask implements Task{
         private String taskName;
         private boolean isDone;
         private String description;
+        private double progress;
         // timer to be added,
 
         public UrgentTask(String taskName, String description, double progress){
             this.taskName = taskName;
             this.description = description;
             this.isDone = false;
+            this.progress = progress;
             // start timer for disaster: Thread?
         }
 
@@ -21,6 +23,8 @@ public class UrgentTask implements Task{
         return description;
     }
 
+    public double getProgress() { return progress; }
+
     @Override
     public boolean getIsDone() {
         return isDone;
@@ -31,6 +35,8 @@ public class UrgentTask implements Task{
         isDone = true;
         // stop timer for disaster
     }
+
+    public void setProgress(double progress) {  this.progress = progress; }
 
     @Override
     public boolean getIsUrgent(){
