@@ -1,5 +1,3 @@
-package com.viragszabo.amongus.role;
-
 import com.viragszabo.amongus.game.Application;
 import com.viragszabo.amongus.game.Game;
 import com.viragszabo.amongus.game.Player;
@@ -8,6 +6,9 @@ import com.viragszabo.amongus.map.GameMap;
 import com.viragszabo.amongus.map.NoDoorException;
 import com.viragszabo.amongus.map.Room;
 import com.viragszabo.amongus.map.RoomTemplate;
+import com.viragszabo.amongus.role.CrewMate;
+import com.viragszabo.amongus.role.Impostor;
+import com.viragszabo.amongus.role.Role;
 import com.viragszabo.amongus.task.RegularTask;
 import com.viragszabo.amongus.task.UrgentTask;
 import org.junit.jupiter.api.Test;

@@ -1,5 +1,6 @@
-package com.viragszabo.amongus.map;
-
+import com.viragszabo.amongus.map.GameMap;
+import com.viragszabo.amongus.map.Room;
+import com.viragszabo.amongus.map.RoomTemplate;
 import com.viragszabo.amongus.task.RegularTask;
 import org.junit.jupiter.api.Test;
 
