@@ -1,4 +1,4 @@
-# Start Document of the java-3-endassignment-virag created by GitHub Classroom
+# Start Document of The Java 3 End-Assignment
 ## Problem description
 
 Among Us is an online multiplayer social deduction game for four to ten players. The game takes place in a space-themed setting, in which players each take on one of two roles, most being Crewmates and a predetermined number being Impostors (one to three players). The crewmates should finish all the tasks and figure out who is/are the impostor(s). The impostor(s) usually kills the other crewmates one by one. Our application is a model of this game.
