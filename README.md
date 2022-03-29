@@ -75,13 +75,15 @@ The game will end if one of these conditions is met:
 4. The **Map** has a unique name and a list for all the rooms for its game.
 5. The **RoomTemplate** has a name and a list for all the doors among the rooms. This is a class for seeing which room is available to which one for the crewmates who are still alive.
 6. The **Room** has a list of all the tasks, a boolean if the impostor sabotages it or not and a specific template of the room, so it knows about its door(s).
-7. The **Task** has a unique name, a description, and a boolean that shows if the crewmate completes it or not.
-8. The **Crewmate** can do a **Task**.
-9. The **Player** has a name, the color of the body, and a hat that can be changed before entering a waiting room.
-10. The **Role** is an abstract class that shows if the player is dead or alive and has two Array lists of the Impostors and the Crewmates.
-11. The **Impostor** and the **Crewmate** inherited from the Role. The Impostor is the one who kills the crewmates or sabotages a specific room. The crewmates can do their tasks for able to win the game.
-12. The **NoDoorException** drops a message if the player can go into a room or not.
-13. The **MapRoom** interface has a method about seeing if the room has a door to a room or not (hasDoorTo), and it returns a true or a false.
+7. The **Task** is an interface.
+8. The **UrgentTask** has a name and a description. Also, it can show its progress and if it is done or not by a crewmate.
+9. The **RegularTask** has a name and a description. Also, it can show its progress and if it is done or not by a crewmate.
+10. The **Crewmate** can do a **Task** at a time.
+11. The **Player** has a name, the color of the body, and a hat that can be changed before entering a waiting room.
+12. The **Role** is an abstract class that shows if the player is dead or alive and has two Array lists of the Impostors and the Crewmates.
+13. The **Impostor** and the **Crewmate** inherited from the Role. The Impostor is the one who kills the crewmates or sabotages a specific room. The crewmates can do their tasks for able to win the game.
+14. The **NoDoorException** drops a message if the player can go into a room or not.
+15. The **MapRoom** interface has a method about seeing if the room has a door to a room or not (hasDoorTo), and it returns a true or a false.
 
 # UML diagram
 
