@@ -85,7 +85,7 @@ The game will end if one of these conditions is met:
 
 # UML diagram
 
-<img src="ClassDiagramUml.jpg">
+<img src="AmongUs_UMLdiagram_New.png">
 
 # Test plan
 ## Build-up the game
