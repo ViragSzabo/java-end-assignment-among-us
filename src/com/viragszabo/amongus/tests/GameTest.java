@@ -60,18 +60,22 @@ class GameTest {
         RoomTemplate rt3 = new RoomTemplate("labor");
         map1.addRoom(rt2);
         map1.addRoom(rt3);
+
         //create doors
         rt1.addDoorTo(rt2);
         rt2.addDoorTo(rt3);
+
         //create the rooms
         Room room1 = new Room(rt1);
         Room room2 = new Room(rt2);
         Room room3 = new Room(rt3);
+
         //create a waitingRoom
         WaitingRoom wr1 = new WaitingRoom("21rwe21", 4, player1);
         wr1.addGroupPlayers(player2);
         wr1.addGroupPlayers(player3);
         wr1.addGroupPlayers(player4);
+
         //create tasks
         RegularTask task1 = new RegularTask("Wet floor", "Mop the floor.", 0.0);
         RegularTask task2 = new RegularTask("Register", "Check in.", 0.0);
@@ -79,6 +83,7 @@ class GameTest {
         room1.addTasks(task1);
         room2.addTasks(task2);
         room3.addTasks(task3);
+
         //game is started
         wr1.startGame(map1);
         Game game1 = wr1.getGame();
@@ -96,6 +101,7 @@ class GameTest {
         getCrewMate(game1, 1).goToRoom(room1);
         getImpostor(game1).kill(victim2);
         getCrewMate(game1, 1).reportDead(victim);
+
         //voting
         Impostor imp = getImpostor(game1);
         CrewMate mate = getCrewMate(game1);
@@ -112,19 +118,22 @@ class GameTest {
     void doCrewmatesWon() throws NoDoorException {
         GameMap map1 = new GameMap("laboratorium");
 
-//        com.viragszabo.amongus.map.RoomTemplate rt1 = new com.viragszabo.amongus.map.RoomTemplate("cafeteria");
+        //com.viragszabo.amongus.map.RoomTemplate rt1 = new com.viragszabo.amongus.map.RoomTemplate("cafeteria");
         RoomTemplate rt1 = map1.getStartRoom();
         RoomTemplate rt2 = new RoomTemplate("register");
         RoomTemplate rt3 = new RoomTemplate("labor");
         map1.addRoom(rt2);
         map1.addRoom(rt3);
+
         //create doors
         rt1.addDoorTo(rt2);
         rt2.addDoorTo(rt3);
+
         //create the rooms
         Room room1 = new Room(rt1);
         Room room2 = new Room(rt2);
         Room room3 = new Room(rt3);
+
         //create a waitingRoom
         WaitingRoom wr1 = new WaitingRoom("21rwe21", 6, player1);
         wr1.addGroupPlayers(player1);
@@ -140,6 +149,7 @@ class GameTest {
         room1.addTasks(task1);
         room2.addTasks(task2);
         room3.addTasks(task3);
+
         //game is started
         wr1.startGame(map1);
         Game game1 = wr1.getGame();
@@ -158,6 +168,7 @@ class GameTest {
         getCrewMate(game1,2).fixSabotage(room3);
         getCrewMate(game1, 2).goToRoom(room2);
         getCrewMate(game1, 1).reportDead(victim);
+
         //broadcast
         game1.broadcast(getCrewMate(game1, 4), "In the cafeteria, Flower is dead.");
         game1.broadcast(getImpostor(game1, 1), "Any suspicious?");
@@ -170,6 +181,7 @@ class GameTest {
         game1.broadcast(getCrewMate(game1, 3), "For me, Denise is sus.");
         game1.broadcast(getImpostor(game1, 2), "Why? I just made the urgent com.viragszabo.amongus.task.Task, before I went out Penny came in and Bernadett.");
         game1.broadcast(getCrewMate(game1, 3), "I did not kill her.");
+
         //voting
         Impostor imp = getImpostor(game1);
         CrewMate mate = getCrewMate(game1);
@@ -185,8 +197,6 @@ class GameTest {
     @org.junit.jupiter.api.Test
     void broadcast() throws NoDoorException {
         GameMap map1 = new GameMap("laboratorium");
-        RoomTemplate rt1 = map1.getStartRoom();
-        Room room1 = new Room(rt1);
         WaitingRoom wr1 = new WaitingRoom("21rwe21", 6, player1);
         wr1.addGroupPlayers(player1);
         wr1.addGroupPlayers(player2);
@@ -207,13 +217,16 @@ class GameTest {
         RoomTemplate rt3 = new RoomTemplate("labor");
         map1.addRoom(rt2);
         map1.addRoom(rt3);
+
         //create doors
         rt1.addDoorTo(rt2);
         rt2.addDoorTo(rt3);
+        
         //create the rooms
         Room room1 = new Room(rt1);
         Room room2 = new Room(rt2);
         Room room3 = new Room(rt3);
+
         //create a waitingRoom
         WaitingRoom wr1 = new WaitingRoom("21rwe21", 6, player1);
         wr1.addGroupPlayers(player1);
@@ -222,6 +235,7 @@ class GameTest {
         wr1.addGroupPlayers(player4);
         wr1.addGroupPlayers(player5);
         wr1.addGroupPlayers(player6);
+
         //create tasks
         RegularTask task1 = new RegularTask("Wet floor", "Mop the floor.", 0.0);
         RegularTask task2 = new RegularTask("Register", "Check in.", 0.0);
@@ -230,6 +244,7 @@ class GameTest {
         room1.addTasks(task1);
         room2.addTasks(task2);
         room3.addTasks(task3);
+
         //game is started
         wr1.startGame(map1);
         Game game1 = wr1.getGame();
@@ -241,6 +256,7 @@ class GameTest {
         getImpostor(game1).kill(getCrewMate(game1, 3));
         getCrewMate(game1, 1).goToRoom(room1);
         getCrewMate(game1, 1).reportDead(getCrewMate(game1, 3));
+
         //voting
         game1.vote(getCrewMate(game1, 1), getImpostor(game1));
         game1.vote(getCrewMate(game1, 2), getImpostor(game1));

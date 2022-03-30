@@ -6,16 +6,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RoomTemplateTest {
+    GameMap map1 = new GameMap("laboratorium");
+    RoomTemplate rt1 = new RoomTemplate("hall");
+    RoomTemplate rt2 = new RoomTemplate("register");
+    RoomTemplate rt3 = new RoomTemplate("cafeteria");
 
     @Test
     void addDoorTo() {
-        GameMap map1 = new GameMap("laboratorium");
-        RoomTemplate rt1 = map1.getStartRoom();
-        RoomTemplate rt2 = new RoomTemplate("register");
-        Room room2 = new Room(rt2);
+        rt1 = map1.getStartRoom();
         map1.addRoom(rt2);
-        RoomTemplate rt3 = new RoomTemplate("register");
-        Room room3 = new Room(rt3);
         map1.addRoom(rt3);
 
         rt1.addDoorTo(rt2);
@@ -26,13 +25,8 @@ class RoomTemplateTest {
 
     @Test
     void hasDoorTo() {
-        GameMap map1 = new GameMap("laboratorium");
-        RoomTemplate rt1 = map1.getStartRoom();
-        RoomTemplate rt2 = new RoomTemplate("register");
-        Room room2 = new Room(rt2);
+        rt1 = map1.getStartRoom();
         map1.addRoom(rt2);
-        RoomTemplate rt3 = new RoomTemplate("register");
-        Room room3 = new Room(rt3);
         map1.addRoom(rt3);
 
         assertFalse(rt1.hasDoorTo(rt2));

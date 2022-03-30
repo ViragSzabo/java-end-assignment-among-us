@@ -15,6 +15,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CrewMateTest {
+    Application app1 = new Application("amongUs");
+    GameMap map1 = new GameMap("laboratorium");
+    Player player1 = new Player("Flower", "red", "leaf");
+    Player player2 = new Player("DrCooper", "black", "train");
+    Player player3 = new Player("DrHofstadter", "yellow", "glasses");
+    Player player4 = new Player("DrKoothrappali", "orange", "sunglasses");
+    Player player5 = new Player("Stuart", "purple", "book");
+    Player player6 = new Player("Denise", "white", "hair");
+    WaitingRoom wr1 = new WaitingRoom("21rwe21", 3, player1);
+    WaitingRoom wr2 = new WaitingRoom("21rwe21", 6, player1);
 
     CrewMate getCrewMate(Game game, int index) {
         for ( Role role : game.getAliveRoles() ) {
@@ -31,11 +41,6 @@ class CrewMateTest {
 
     @Test
     void doTask() {
-        Application app1 = new Application("amongUs");
-        Player player1 = new Player("Flower", "red", "leaf");
-        Player player2 = new Player("DrCooper", "black", "train");
-        Player player3 = new Player("DrHofstadter", "yellow", "glasses");
-        WaitingRoom wr1 = new WaitingRoom("21rwe21", 3, player1);
         wr1.addGroupPlayers(player1);
         wr1.addGroupPlayers(player2);
         wr1.addGroupPlayers(player3);
@@ -56,11 +61,6 @@ class CrewMateTest {
 
     @Test
     void progressOfTask() {
-        Application app1 = new Application("amongUs");
-        Player player1 = new Player("Flower", "red", "leaf");
-        Player player2 = new Player("DrCooper", "black", "train");
-        Player player3 = new Player("DrHofstadter", "yellow", "glasses");
-        WaitingRoom wr1 = new WaitingRoom("21rwe21", 3, player1);
         wr1.addGroupPlayers(player1);
         wr1.addGroupPlayers(player2);
         wr1.addGroupPlayers(player3);
@@ -81,11 +81,6 @@ class CrewMateTest {
 
     @Test
     void stepByStepDoingTask() {
-        Application app1 = new Application("amongUs");
-        Player player1 = new Player("Flower", "red", "leaf");
-        Player player2 = new Player("DrCooper", "black", "train");
-        Player player3 = new Player("DrHofstadter", "yellow", "glasses");
-        WaitingRoom wr1 = new WaitingRoom("21rwe21", 3, player1);
         wr1.addGroupPlayers(player1);
         wr1.addGroupPlayers(player2);
         wr1.addGroupPlayers(player3);
@@ -120,11 +115,6 @@ class CrewMateTest {
 
     @Test
     void fixSabotage() {
-        Application app1 = new Application("amongUs");
-        Player player1 = new Player("Flower", "red", "leaf");
-        Player player2 = new Player("DrCooper", "black", "train");
-        Player player3 = new Player("DrHofstadter", "yellow", "glasses");
-        WaitingRoom wr1 = new WaitingRoom("21rwe21", 3, player1);
         wr1.addGroupPlayers(player1);
         wr1.addGroupPlayers(player2);
         wr1.addGroupPlayers(player3);
@@ -146,11 +136,6 @@ class CrewMateTest {
 
     @Test
     void fixingSabotagedRoomWithUrgentTask() {
-        Application app1 = new Application("amongUs");
-        Player player1 = new Player("Flower", "red", "leaf");
-        Player player2 = new Player("DrCooper", "black", "train");
-        Player player3 = new Player("DrHofstadter", "yellow", "glasses");
-        WaitingRoom wr1 = new WaitingRoom("21rwe21", 3, player1);
         wr1.addGroupPlayers(player1);
         wr1.addGroupPlayers(player2);
         wr1.addGroupPlayers(player3);
@@ -172,11 +157,6 @@ class CrewMateTest {
 
     @Test
     void doUrgentTask() {
-        Application app1 = new Application("amongUs");
-        Player player1 = new Player("Flower", "red", "leaf");
-        Player player2 = new Player("DrCooper", "black", "train");
-        Player player3 = new Player("DrHofstadter", "yellow", "glasses");
-        WaitingRoom wr1 = new WaitingRoom("21rwe21", 3, player1);
         wr1.addGroupPlayers(player1);
         wr1.addGroupPlayers(player2);
         wr1.addGroupPlayers(player3);
@@ -198,11 +178,6 @@ class CrewMateTest {
 
     @Test
     void stepByStepDoUrgentTask() {
-        Application app1 = new Application("amongUs");
-        Player player1 = new Player("Flower", "red", "leaf");
-        Player player2 = new Player("DrCooper", "black", "train");
-        Player player3 = new Player("DrHofstadter", "yellow", "glasses");
-        WaitingRoom wr1 = new WaitingRoom("21rwe21", 3, player1);
         wr1.addGroupPlayers(player1);
         wr1.addGroupPlayers(player2);
         wr1.addGroupPlayers(player3);
@@ -233,21 +208,12 @@ class CrewMateTest {
 
     @Test
     void goToRoom() throws NoDoorException {
-        Application app1 = new Application("amongUs");
-        GameMap map1 = new GameMap("laboratorium");
-        Player player1 = new Player("Flower", "red", "leaf");
-        Player player2 = new Player("DrCooper", "black", "train");
-        Player player3 = new Player("DrHofstadter", "yellow", "glasses");
-        Player player4 = new Player("DrKoothrappali", "orange", "sunglasses");
-        Player player5 = new Player("Stuart", "purple", "book");
-        Player player6 = new Player("Denise", "white", "hair");
-        WaitingRoom wr1 = new WaitingRoom("21rwe21", 6, player1);
-        wr1.addGroupPlayers(player1);
-        wr1.addGroupPlayers(player2);
-        wr1.addGroupPlayers(player3);
-        wr1.addGroupPlayers(player4);
-        wr1.addGroupPlayers(player5);
-        wr1.addGroupPlayers(player6);
+        wr2.addGroupPlayers(player1);
+        wr2.addGroupPlayers(player2);
+        wr2.addGroupPlayers(player3);
+        wr2.addGroupPlayers(player4);
+        wr2.addGroupPlayers(player5);
+        wr2.addGroupPlayers(player6);
 
         RoomTemplate rt1 = map1.getStartRoom();
         RoomTemplate rt2 = new RoomTemplate("register");
@@ -257,7 +223,7 @@ class CrewMateTest {
         rt1.addDoorTo(rt2);
         rt2.addDoorTo(rt3);
 
-        Game game1 = wr1.startGame(map1);
+        Game game1 = wr2.startGame(map1);
         Room room2 = new Room(rt2);
         Room room3 = new Room(rt3);
 
