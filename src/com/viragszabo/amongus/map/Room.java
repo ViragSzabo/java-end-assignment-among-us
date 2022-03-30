@@ -54,7 +54,5 @@ public class Room {
      * @param room is the specific room
      * @return a boolean (true or false)
      */
-    public boolean hasDoorTo(Room room) {
-        return this.getTemplate().hasDoorTo(room.getTemplate());
-    }
+    public boolean hasDoorTo(Room room) { return this.getTemplate().hasDoorTo(room.getTemplate());}
 }

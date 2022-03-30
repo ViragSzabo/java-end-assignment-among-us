@@ -5,14 +5,12 @@ public class Player {
     private String bodyColour;
     private String customHat;
     private WaitingRoom waitingRoom;
-    private String costumeHat;
     private WaitingRoom currentWaitingRoom;
 
     public Player(String playerName, String bodyColour, String customHat) {
         this.playerName = playerName;
         this.bodyColour = bodyColour;
         this.customHat = customHat;
-        this.costumeHat = costumeHat;
         this.currentWaitingRoom = null;
     }
 

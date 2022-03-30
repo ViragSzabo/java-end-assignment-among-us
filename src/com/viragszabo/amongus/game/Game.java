@@ -14,12 +14,7 @@ import java.util.Collections;
 public class Game {
     private GameMap gameMap;
     private WaitingRoom waitingRoom;
-    //private ArrayList<com.viragszabo.amongus.role.Impostor> impostors;
-    //private ArrayList<com.viragszabo.amongus.role.CrewMate> crewMates;
-    //private ArrayList<com.viragszabo.amongus.role.Impostor> ghostImpostors;
-    //private ArrayList<com.viragszabo.amongus.role.CrewMate> ghostCrewMates;
-    //make everything just for this one
-    private ArrayList<Role> aliveRoles;
+    private ArrayList<Role> aliveRoles; //one list for all the previous roles
     private HashMap<Role,Role> votes = new HashMap<>();
     private ArrayList<Room> rooms;
 
@@ -79,30 +74,6 @@ public class Game {
     public ArrayList<Room> getRooms() {
         return rooms;
     }
-
-    /*public ArrayList<com.viragszabo.amongus.role.Impostor> getImpostors() {
-        return impostors;
-    }
-
-    public ArrayList<com.viragszabo.amongus.role.CrewMate> getCrewmates() {
-        return crewMates;
-    }*/
-
-    /*
-     * save a player who is an impostor to the correct list
-     * @param impostor is the specific player
-
-    public void addImpostor(com.viragszabo.amongus.role.Impostor impostor) {
-        impostors.add(impostor);
-    }
-
-     * save a player who is a crewmate to the correct list
-     * @param crewmate is the specific player
-
-    /*public void addCrewmate(com.viragszabo.amongus.role.CrewMate crewmate) {
-        crewMates.add(crewmate);
-    }*/
-
 
     /**
      * The impostors win
