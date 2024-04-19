@@ -5,8 +5,9 @@ public class UrgentTask implements Task{
         private boolean isDone;
         private String description;
         private double progress;
+        private double urgentTaskTimer;
 
-        public UrgentTask(String taskName, String description, double progress){
+        public UrgentTask(String taskName, String description, double progress, double urgentTaskTimer){
             this.taskName = taskName;
             this.description = description;
             this.isDone = false;
@@ -21,6 +22,8 @@ public class UrgentTask implements Task{
         return description;
     }
 
+    public double getUrgentTaskTimer() { return urgentTaskTimer; }
+
     public double getProgress() { return progress; }
 
     @Override
@@ -29,9 +32,7 @@ public class UrgentTask implements Task{
     }
 
     @Override
-    public void setIsDone() {
-        isDone = true;
-    }
+    public void setIsDone() { isDone = true; }
 
     public void setProgress(double progress) {  this.progress = progress; }
 

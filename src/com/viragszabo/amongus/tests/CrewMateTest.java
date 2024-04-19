@@ -147,7 +147,7 @@ class CrewMateTest {
         CrewMate e1 = new CrewMate(game1, player1, room1);
         CrewMate e2 = new CrewMate(game1, player2, room1);
         Impostor i1 = new Impostor(game1, player3, room1);
-        UrgentTask urgent1 = new UrgentTask("Leaking", "The gas is leaking", 0.0);
+        UrgentTask urgent1 = new UrgentTask("Leaking", "The gas is leaking", 0.0, 0.30);
 
         i1.sabotage(room1);
         assertTrue(room1.isSabotaged());
@@ -168,7 +168,7 @@ class CrewMateTest {
         CrewMate e1 = new CrewMate(game1, player1, room1);
         CrewMate e2 = new CrewMate(game1, player2, room1);
         Impostor i1 = new Impostor(game1, player3, room1);
-        UrgentTask urgent1 = new UrgentTask("Leaking", "The gas is leaking", 0.0);
+        UrgentTask urgent1 = new UrgentTask("Leaking", "The gas is leaking", 0.0, 0.30);
 
         assertFalse(urgent1.getIsDone());
         i1.sabotage(room1);
@@ -189,7 +189,7 @@ class CrewMateTest {
         CrewMate e1 = new CrewMate(game1, player1, room1);
         CrewMate e2 = new CrewMate(game1, player2, room1);
         Impostor i1 = new Impostor(game1, player3, room1);
-        UrgentTask urgent1 = new UrgentTask("Leaking", "The gas is leaking", 0.0);
+        UrgentTask urgent1 = new UrgentTask("Leaking", "The gas is leaking", 0.0, 0.30);
 
         i1.sabotage(room1);
         System.out.println("Start point:" + urgent1.getProgress());

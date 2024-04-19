@@ -43,7 +43,7 @@ public class Room {
     {
         isSabotaged = sabotaged;
         if ( sabotaged ) {
-            urgentTask = new UrgentTask("Leaking", "Gas is leaking!", 0.0);
+            urgentTask = new UrgentTask("Leaking", "Gas is leaking!", 0.0, 0.30);
         } else {
             urgentTask = null;
         }
